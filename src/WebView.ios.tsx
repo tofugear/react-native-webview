@@ -66,6 +66,8 @@ class WebView extends React.Component<IOSWebViewProps, State> {
     cacheEnabled: true,
     originWhitelist: defaultOriginWhitelist,
     useSharedProcessPool: true,
+    allowUniversalAccessFromFileURLs: false,
+    allowFileAccess: false,
   };
 
   static isFileUploadSupported = async () => {

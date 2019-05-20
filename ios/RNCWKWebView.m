@@ -204,6 +204,22 @@ static NSURLCredential* clientAuthenticationCredential;
       }
     }
 
+    if (_allowFileAccess){
+      NSLog(@"allowFileAccessFromFileURLs///");
+      @try {
+        [wkWebViewConfig.preferences setValue:@YES forKey:@"allowFileAccessFromFileURLs"];
+      }
+      @catch (NSException *exception) {}
+    }
+
+    if (_allowUniversalAccessFromFileURLs){
+      NSLog(@"allowUniversalAccessFromFileURLs///");
+      @try {
+        [wkWebViewConfig setValue:@YES forKey:@"allowUniversalAccessFromFileURLs"];
+      }
+      @catch (NSException *exception) {}
+    }
+
     _webView = [[WKWebView alloc] initWithFrame:self.bounds configuration: wkWebViewConfig];
     _webView.scrollView.delegate = self;
     _webView.UIDelegate = self;

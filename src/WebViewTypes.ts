@@ -210,6 +210,8 @@ export type OnShouldStartLoadWithRequest = (
 ) => boolean;
 
 export interface CommonNativeWebViewProps extends ViewProps {
+  allowFileAccess?: boolean;
+  allowUniversalAccessFromFileURLs?: boolean;
   cacheEnabled?: boolean;
   injectedJavaScript?: string;
   mediaPlaybackRequiresUserAction?: boolean;
@@ -231,8 +233,6 @@ export interface CommonNativeWebViewProps extends ViewProps {
 }
 
 export interface AndroidNativeWebViewProps extends CommonNativeWebViewProps {
-  allowFileAccess?: boolean;
-  allowUniversalAccessFromFileURLs?: boolean;
   androidHardwareAccelerationDisabled?: boolean;
   domStorageEnabled?: boolean;
   geolocationEnabled?: boolean;
@@ -442,20 +442,6 @@ export interface AndroidWebViewProps extends WebViewSharedProps {
   geolocationEnabled?: boolean;
 
   /**
-   * Boolean that sets whether JavaScript running in the context of a file
-   * scheme URL should be allowed to access content from any origin.
-   * Including accessing content from other file scheme URLs
-   * @platform android
-   */
-  allowUniversalAccessFromFileURLs?: boolean;
-
-  /**
-   * Sets whether the webview allow access to file system.
-   * @platform android
-   */
-  allowFileAccess?: boolean;
-
-  /**
    * Used on Android only, controls whether form autocomplete data should be saved
    * @platform android
    */
@@ -653,4 +639,18 @@ export interface WebViewSharedProps extends ViewProps {
    * Should caching be enabled. Default is true.
    */
   cacheEnabled?: boolean;
+
+  /**
+   * Boolean that sets whether JavaScript running in the context of a file
+   * scheme URL should be allowed to access content from any origin.
+   * Including accessing content from other file scheme URLs
+   * @platform android
+   */
+  allowUniversalAccessFromFileURLs?: boolean;
+
+  /**
+   * Sets whether the webview allow access to file system.
+   * @platform android
+   */
+  allowFileAccess?: boolean;
 }

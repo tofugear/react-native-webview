@@ -48,6 +48,8 @@
 @property (nonatomic, assign) BOOL showsHorizontalScrollIndicator;
 @property (nonatomic, assign) BOOL showsVerticalScrollIndicator;
 @property (nonatomic, assign) BOOL directionalLockEnabled;
+@property (nonatomic, assign) BOOL allowFileAccess;
+@property (nonatomic, assign) BOOL allowUniversalAccessFromFileURLs;
 
 + (void)setClientAuthenticationCredential:(nullable NSURLCredential*)credential;
 - (void)postMessage:(NSString *)message;

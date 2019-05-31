@@ -804,6 +804,8 @@ static NSURLCredential* clientAuthenticationCredential;
       if (callback != nil) {
         callback([NSString stringWithFormat:@"%@", result]);
       }
+    } else if (error.code == WKErrorWebViewInvalidated) {
+        RCTLogInfo(@"Error evaluating injectedJavaScript: %@", error.localizedDescription);
     } else {
       RCTLogError(@"Error evaluating injectedJavaScript: This is possibly due to an unsupported return type. Try adding true to the end of your injectedJavaScript string.");
     }
